@@ -29,9 +29,9 @@ namespace my
     {
         template <typename Func, typename... Others>
         static constexpr Ret call(Func&& func, Others&&... others)
-            noexcept(noexcept(std::invoke(std::move<Func>(func), std::move<Others>(others)...)))
+            noexcept(noexcept(std::invoke(std::move(func), std::move(others)...)))
         {
-            return std::invoke(std::move<Func>(func), std::move<Others>(others)...);
+            return std::invoke(std::move(func), std::move(others)...);
         };
     };
     template <typename Ret>
@@ -39,9 +39,9 @@ namespace my
     {
         template <typename Func, typename... Others>
         static constexpr void call(Func&& func, Others&&... others)
-            noexcept(noexcept(std::invoke(std::move<Func>(func), std::move<Others>(others)...)))
+            noexcept(noexcept(std::invoke(std::move(func), std::move(others)...)))
         {
-            std::invoke(std::move<Func>(func), std::move<Others>(others)...);
+            std::invoke(std::move(func), std::move(others)...);
         };
     };
     template <>
@@ -49,10 +49,10 @@ namespace my
     {
         template <typename Func, typename... Others>
         static constexpr auto call(Func&& func, Others&&... others)
-            noexcept(noexcept(std::invoke(std::move<Func>(func), std::move<Others>(others)...)))
-            -> decltype(std::invoke(std::move<Func>(func), std::move<Others>(others)...))
+            noexcept(noexcept(std::invoke(std::move(func), std::move(others)...)))
+            -> decltype(std::invoke(std::move(func), std::move(others)...))
         {
-            return std::invoke(std::move<Func>(func), std::move<Others>(others)...);
+            return std::invoke(std::move(func), std::move(others)...);
         };
     };
     template <typename A, template <typename...> typename T>
