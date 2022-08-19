@@ -1,2 +1,2 @@
-# Binder-in-C-
+# Binder-in-C
 How does Binder work?
